@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/_ndimaebottom"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
+        android:layout_height="match_parent"
+        android:background="@drawable/_img">
 
 
         <TextView
@@ -18,7 +18,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="180dp"
-            android:text="RECYCLER VIEW"
+            android:background="#00FFFFFF"
+            android:fontFamily="@font/cairo_extralight"
+            android:hapticFeedbackEnabled="false"
+            android:text="Admin App"
+            android:textAllCaps="true"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -33,9 +37,9 @@
             android:layout_width="360dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="344dp"
+            android:layout_marginTop="306dp"
             android:backgroundTint="@color/teal_200"
-            android:text="RECYCLER VIEW"
+            android:text="CONTINUE"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
