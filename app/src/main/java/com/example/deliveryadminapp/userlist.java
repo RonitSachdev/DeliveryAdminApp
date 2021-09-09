@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -15,12 +19,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class userlist extends AppCompatActivity {
+public class userlist extends AppCompatActivity implements MyAdapter.OnBtnClickListener {
 
     RecyclerView recyclerView;
     DatabaseReference database;
     MyAdapter myAdapter;
     ArrayList<User> list;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,8 @@ public class userlist extends AppCompatActivity {
         list = new ArrayList<>();
         myAdapter = new MyAdapter(this,list);
         recyclerView.setAdapter(myAdapter);
+
+
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -51,5 +58,16 @@ public class userlist extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onDeliverBtnClick(int position) {
+        list.remove(position);
+        myAdapter.notifyItemRemoved(position);
+    }
+
+    static public void displayToast(View v){
+        Context context = v.getContext();
+        Toast.makeText(context,"Changes will be made next time you open app!",Toast.LENGTH_LONG).show();
     }
 }

@@ -2,15 +2,15 @@ package com.example.deliveryadminapp;
 
 public class User {
 
-    public String userName,userMail,userOrgName,userOrgAdd,userQuantity,userPhone;
+    public String userName,userID,userOrgName,userOrgAdd,userQuantity,userPhone;
 
 
     public String getName() {
         return userName;
     }
 
-    public String getEmail() {
-        return userMail;
+    public String getUserID() {
+        return userID;
     }
 
     public String getOrgname() {
@@ -28,4 +28,6 @@ public class User {
     public String getQuantity() {
         return userQuantity;
     }
+
+
 }
