@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class userlist extends AppCompatActivity implements MyAdapter.OnBtnClickListener {
+public class userlist extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DatabaseReference database;
@@ -42,7 +42,7 @@ public class userlist extends AppCompatActivity implements MyAdapter.OnBtnClickL
         recyclerView.setAdapter(myAdapter);
 
 
-        database.addValueEventListener(new ValueEventListener() {
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
@@ -52,6 +52,10 @@ public class userlist extends AppCompatActivity implements MyAdapter.OnBtnClickL
                 myAdapter.notifyDataSetChanged();
             }
 
+
+
+
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -60,11 +64,6 @@ public class userlist extends AppCompatActivity implements MyAdapter.OnBtnClickL
 
     }
 
-    @Override
-    public void onDeliverBtnClick(int position) {
-        list.remove(position);
-        myAdapter.notifyItemRemoved(position);
-    }
 
     static public void displayToast(View v){
         Context context = v.getContext();
