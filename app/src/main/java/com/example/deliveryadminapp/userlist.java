@@ -69,4 +69,9 @@ public class userlist extends AppCompatActivity {
         Context context = v.getContext();
         Toast.makeText(context,"Changes will be made next time you open app!",Toast.LENGTH_LONG).show();
     }
+
+    @Override
+    public void onBackPressed() {
+        
+    }
 }

@@ -3,6 +3,7 @@ package com.example.deliveryadminapp;
 import static com.example.deliveryadminapp.userlist.displayToast;
 
 import android.content.Context;
+import android.content.Intent;
 import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,12 +80,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(context,"Changes will be made next time you open this app!",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(context,"Deleting from database",Toast.LENGTH_LONG).show();
                                 }
                             });
                         }
                     }
                 });
+
+                Intent intent = new Intent(context,AfterDelivered.class);
+                context.startActivity(intent);
+
             }
         });
     }
